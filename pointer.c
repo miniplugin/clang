@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <conio.h>
 #include <string.h>
 
 void main() {
@@ -22,5 +21,5 @@ void main() {
 		cnt=cnt + 1;//cnt++
 	}
 	putchar('\n');//글자를 출력하지 않고, 엔터치는 효과 \newline
-	getch();//버퍼내용 삭제
+	getchar();//버퍼내용 삭제
 }
