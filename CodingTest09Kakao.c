@@ -4,9 +4,10 @@
 //전역변수특이사항: 배열의 리턴값(변수=값)을 사용할 경우 포인터변수로 만들어야 함.
 //char endString[];//전역변수 사용시 포인터 변수로 해야 함.
 //char endString[]={'K','i','t','t','y'};
-char* endString="";//전역변수 사용시 포인터 변수로 해야 함.
-char* resultString="";//전역변수 사용시 포인터 변수로 해야 함.
-char* resultString2="";
+char str[80]="";
+char* endString=str;//전역변수 사용시 포인터 변수로 해야 함.
+char* resultString=str;//전역변수 사용시 포인터 변수로 해야 함.
+char* resultString2=str;
 //인터페이스=함수정의 3개
 char* recursive(char w[]);
 int getBalancedIndex(char w[]);
@@ -37,9 +38,9 @@ char* recursive(char w[]) {
 	char *u = malloc(strlen(w) + 1);
 	char *v = malloc(strlen(w) + 1);
 	strncpy(u, w, balacedIndex+1);
-	printf("여기1 %d\n", strlen(w)-1);
-	printf("여기2 %d\n", balacedIndex);
-	
+	printf("strlen(w)-1 %d\n", strlen(w)-1);
+	printf("balacedIndex %d\n", balacedIndex);
+	printf("u %s\n", u);
 	if(strlen(u)>1) {
 		strncpy(v, w+balacedIndex+1, strlen(w)-1);
 	}
@@ -48,11 +49,14 @@ char* recursive(char w[]) {
 	
 	if(isValidCheck) {
 		//Unit값이 ( 문자 하나라면 균형문자 추가 20210407(수) 문자열처리 문제있음.
-		if(strcmp("(",u)==0) { endString = strcat(endString,")"); }
+		if(strcmp("(",u)==0) { 
+			endString = strcat(endString,")"); 
+			printf("endString %s\n", endString);
+		}
 		recursive(v);
 		printf("%s\n", u);
 		resultString = strcat(u,resultString);
-		printf("여기2 %s\n", resultString);
+		printf("여-기2 %s\n", resultString2);
 		if(strlen(resultString2)>0){
 			return strcat(resultString2,resultString);
 		}else{
@@ -64,7 +68,7 @@ char* recursive(char w[]) {
 			resultString2 = strcat(resultString2,recursive(v));
 		}
 		resultString2 = reArrange(u);
-		printf("여기1 %s\n", resultString2);
+		printf("resultString2 %s\n", resultString2);
 		return resultString2;	
 	}
 }
