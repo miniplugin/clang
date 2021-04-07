@@ -5,8 +5,8 @@
 //char endString[];//전역변수 사용시 포인터 변수로 해야 함.
 //char endString[]={'K','i','t','t','y'};
 char* endString="";//전역변수 사용시 포인터 변수로 해야 함.
-char* resutlString="";//전역변수 사용시 포인터 변수로 해야 함.
-char* resutlString2="";
+char* resultString="";//전역변수 사용시 포인터 변수로 해야 함.
+char* resultString2="";
 //인터페이스=함수정의 3개
 char* recursive(char w[]);
 int getBalancedIndex(char w[]);
@@ -28,9 +28,9 @@ int main() {
 }
 char* recursive(char w[]) {
 	if(w == NULL || strlen(w)==0) {
-		resutlString = strcat(w,endString);
-		printf("여기3 %s\n", resutlString);
-		return resutlString;
+		resultString = strcat(w,endString);
+		printf("여기3 %s\n", resultString);
+		return resultString;
 	}
 	int balacedIndex = getBalancedIndex(w);
 	int n;
@@ -51,21 +51,21 @@ char* recursive(char w[]) {
 		if(strcmp("(",u)==0) { endString = strcat(endString,")"); }
 		recursive(v);
 		printf("%s\n", u);
-		resutlString = strcat(u,resutlString);
-		printf("여기2 %s\n", resutlString);
-		if(strlen(resutlString2)>0){
-			return strcat(resutlString2,resutlString);
+		resultString = strcat(u,resultString);
+		printf("여기2 %s\n", resultString);
+		if(strlen(resultString2)>0){
+			return strcat(resultString2,resultString);
 		}else{
-			return resutlString;
+			return resultString;
 		}
 	}else{
 		//char *createString = malloc(strlen(w) + 1);
 		if(strlen(u)>1) {
-			resutlString2 = strcat(resutlString2,recursive(v));
+			resultString2 = strcat(resultString2,recursive(v));
 		}
-		resutlString2 = reArrange(u);
-		printf("여기1 %s\n", resutlString2);
-		return resutlString2;	
+		resultString2 = reArrange(u);
+		printf("여기1 %s\n", resultString2);
+		return resultString2;	
 	}
 }
 char* reArrange(char u[]) {
