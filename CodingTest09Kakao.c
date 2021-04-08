@@ -40,7 +40,6 @@ char* recursive(char w[]) {
 	bool isValidCheck = isValidString(u);	
 	printf("w는 %s, u는 %s, v는 %s, isValidCheck는 %d\n", w, u, v, isValidCheck);
 	if(isValidCheck) {
-		//Unit값이 ( 문자 하나라면 균형문자 추가 20210407(수) 문자열처리 문제있음.
 		if(strcmp("(",u)==0) { 
 			endString = strcat(endString,")"); 
 		}
