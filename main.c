@@ -1,5 +1,16 @@
 #include <stdio.h>
 #include <string.h>
+int main() {
+	char str_create[100] = "";
+	char* createString = str_create;
+	char str_add[100] = "";
+	char* addString = str_add;
+	addString = "(";
+	createString = strcat(createString,addString);
+	createString = strcat(createString,")");
+	printf("%s\n", createString);
+	return 0;
+}
 /*
 int main(int argc, char* argv[]) {
 	printf("Hello, goorm!\n");
@@ -10,6 +21,7 @@ int main(int argc, char* argv[]) {
 	return 0;
 }*/
 //누적함수 사용의미
+/*
 char* testLoop(int n);
 char str[80]="";
 char* w = str;
@@ -53,3 +65,4 @@ void test() {
 }
 //메모리 청소하기
 free(w);free(u);free(v);
+*/
